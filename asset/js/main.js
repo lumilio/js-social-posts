@@ -9,6 +9,8 @@ Gli attributi minimi del modello di un post: id, contenuto, immagine,
 autore (nome, avatar), numero di likes, data creazione.
 
 
+const
+
 Un secondo array conterrà solo gli id dei posts a cui abbiamo dato like.
 
 
@@ -23,10 +25,26 @@ Bonus 2: Gestire l'assenza dell'immagine profilo con un elemento di fallback che
 Bonus 3: Click al pulsante "Mi Piace" incrementa il counter dei like al post. */
  
 
+const posts = [
+    {
+        id,
+        autore:{ 
+            nome, 
+            avatar
+        },
+        contenuto,
+        immagine,
+        likes,
+        data
+    },
+    {},
+    {},
+    {},
+]
 
-
-
-console.log('ciao');
-
-
+const postsID = [
+    {},
+    {},
+    {},
+]
 
