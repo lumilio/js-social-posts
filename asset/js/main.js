@@ -1,7 +1,4 @@
 
-
-
-
 /* Creare una pagina che elenchi una lists di post socials a partire da un array di oggetti.
 
 
@@ -24,7 +21,7 @@ Bonus 1: Date formattate come tempo relativo (es. "due mesi fa")
 Bonus 2: Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Sofia Perlari > SP)
 Bonus 3: Click al pulsante "Mi Piace" incrementa il counter dei like al post. */
  
-
+const postsID = []
 const posts = [
     {
         id,
@@ -37,14 +34,40 @@ const posts = [
         likes,
         data
     },
-    {},
-    {},
-    {},
+    {
+        id,
+        autore:{ 
+            nome, 
+            avatar
+        },
+        contenuto,
+        immagine,
+        likes,
+        data
+    },
+    {
+        id,
+        autore:{ 
+            nome, 
+            avatar
+        },
+        contenuto,
+        immagine,
+        likes,
+        data
+    },
+    {
+        id,
+        autore:{ 
+            nome, 
+            avatar
+        },
+        contenuto,
+        immagine,
+        likes,
+        data
+    }
 ]
 
-const postsID = [
-    {},
-    {},
-    {},
-]
+
 
