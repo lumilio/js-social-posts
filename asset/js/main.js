@@ -11,11 +11,6 @@ const
 Un secondo array conterrà solo gli id dei posts a cui abbiamo dato like.
 
 
-Immagini: va bene utilizzare qualsiasi servizio di placeholder
-ad es. Unsplash (https://unsplash.it/300/300?image=<id>)
-
-
-
 BONUS:
 Bonus 1: Date formattate come tempo relativo (es. "due mesi fa")
 Bonus 2: Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Sofia Perlari > SP)
@@ -24,53 +19,72 @@ Bonus 3: Click al pulsante "Mi Piace" incrementa il counter dei like al post. */
 const postsID = []
 const posts = [
     {
-        id,
+        id:1,
         autore:{ 
-            nome, 
-            avatar
+            nome:'giacomo', 
+            avatar:"https://unsplash.it/80/80?image=",
         },
-        contenuto,
-        immagine,
-        likes,
-        data
+        contenuto:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
+        immagine:'https://unsplash.it/800/400?image=',
+        likes:50,
+        data:'aprile'
     },
     {
-        id,
+        id:1,
         autore:{ 
-            nome, 
-            avatar
+            nome:'giovanni', 
+            avatar:"https://unsplash.it/80/80?image=",
         },
-        contenuto,
-        immagine,
-        likes,
-        data
+        contenuto:'orem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
+        immagine:'https://unsplash.it/800/400?image=',
+        likes:100,
+        data:'maggio'
     },
     {
-        id,
+        id:1,
         autore:{ 
-            nome, 
-            avatar
+            nome:'aldo', 
+            avatar:"https://unsplash.it/80/80?image=",
         },
-        contenuto,
-        immagine,
-        likes,
-        data
+        contenuto:'rem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
+        immagine:'https://unsplash.it/800/400?image=',
+        likes:30,
+        data:'giugno'
     },
     {
-        id,
+        id:1,
         autore:{ 
-            nome, 
-            avatar
+            nome:'lorenzo', 
+            avatar:"https://unsplash.it/80/80?image=",
         },
-        contenuto,
-        immagine,
-        likes,
-        data
-    }
+        contenuto:'em ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
+        immagine:'https://unsplash.it/800/400?image=',
+        likes:200,
+        data:'luglio'
+    },
 ]
 
+let postlayout = '';
+
 for (let i = 0; i < posts.length; i++) {
-    const element = posts[i];
+    postlayout +=
+    `
+    <div class="the-post bg-white d-flex justify-content-center flex-column p-4 m-4">
+                <div id="the-user" class="d-flex justify-content-start align-items-center flex-row mb-3">
+                    <img src="https://unsplash.it/80/80?image=" class="rounded-circle" alt="">
+                    <div class="m-3">
+                        <div>nome</div>
+                        <div>data</div>
+                    </div>
+                </div>
+                <h4 class="mb-4 mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?</h4>
+                <img src="https://unsplash.it/800/400?image=" alt="">
+                <div id="likes-container" class="d-flex justify-content-start flex-row">
+                    <div class="w-50 d-flex justify-content-center pt-5 pb-3">mi piace</div>
+                    <div class="w-50 d-flex justify-content-center pt-5 pb-3">quanti likes</div>
+                </div>
+            </div>
+    `
     
 }
 
