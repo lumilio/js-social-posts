@@ -22,10 +22,10 @@ const posts = [
         id:1,
         autore:{ 
             nome:'giacomo', 
-            avatar:"https://unsplash.it/80/80?image=",
+            avatar:"https://picsum.photos/id/14/80/80",
         },
         contenuto:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
-        immagine:'https://unsplash.it/800/400?image=',
+        immagine:"https://picsum.photos/id/9/800/400",
         likes:50,
         data:'aprile'
     },
@@ -33,10 +33,10 @@ const posts = [
         id:1,
         autore:{ 
             nome:'giovanni', 
-            avatar:"https://unsplash.it/80/80?image=",
+            avatar:"https://picsum.photos/id/19/80/80",
         },
-        contenuto:'orem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
-        immagine:'https://unsplash.it/800/400?image=',
+        contenuto:'orem ipsum, ctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
+        immagine:"https://picsum.photos/id/55/800/400",
         likes:100,
         data:'maggio'
     },
@@ -44,10 +44,10 @@ const posts = [
         id:1,
         autore:{ 
             nome:'aldo', 
-            avatar:"https://unsplash.it/80/80?image=",
+            avatar:"https://picsum.photos/id/31/80/80",
         },
-        contenuto:'rem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
-        immagine:'https://unsplash.it/800/400?image=',
+        contenuto:'rem distinctio a consequuntur ducimus dicta maiores, recusandanostrum nobis?',
+        immagine:"https://picsum.photos/id/98/800/400",
         likes:30,
         data:'giugno'
     },
@@ -57,8 +57,8 @@ const posts = [
             nome:'lorenzo', 
             avatar:"https://unsplash.it/80/80?image=",
         },
-        contenuto:'em ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
-        immagine:'https://unsplash.it/800/400?image=',
+        contenuto:'em ipsum, dolor sit amet consectetur adipisicing elit. nostrum nobis?',
+        immagine:"https://picsum.photos/id/77/800/400",
         likes:200,
         data:'luglio'
     },
@@ -68,23 +68,21 @@ let postlayout = '';
 
 for (let i = 0; i < posts.length; i++) {
     postlayout +=
-    `
-    <div class="the-post bg-white d-flex justify-content-center flex-column p-4 m-4">
-                <div id="the-user" class="d-flex justify-content-start align-items-center flex-row mb-3">
-                    <img src="https://unsplash.it/80/80?image=" class="rounded-circle" alt="">
-                    <div class="m-3">
-                        <div>nome</div>
-                        <div>data</div>
-                    </div>
-                </div>
-                <h4 class="mb-4 mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?</h4>
-                <img src="https://unsplash.it/800/400?image=" alt="">
-                <div id="likes-container" class="d-flex justify-content-start flex-row">
-                    <div class="w-50 d-flex justify-content-center pt-5 pb-3">mi piace</div>
-                    <div class="w-50 d-flex justify-content-center pt-5 pb-3">quanti likes</div>
+        `<div class="the-post bg-white d-flex justify-content-center flex-column p-4 m-4">
+            <div id="the-user" class="d-flex justify-content-start align-items-center flex-row mb-3">
+                <img src="${posts[i].autore.avatar}"  class="rounded-circle" alt="">
+                <div class="m-3">
+                    <div>${posts[i].autore.nome}</div>
+                    <div>${posts[i].data}</div>
                 </div>
             </div>
-    `
-    
+            <h4 class="mb-4 mt-2">${posts[i].contenuto}</h4>
+            <img src="${posts[i].immagine}"alt="">
+            <div id="likes-container" class="d-flex justify-content-start flex-row">
+                <div class="w-50 d-flex justify-content-center pt-5 pb-3">mi piace</div>
+                <div class="w-50 d-flex justify-content-center pt-5 pb-3">${posts[i].likes}</div>
+            </div>
+        </div>`   
 }
 
+document.getElementById('container-posts').innerHTML = postlayout;
