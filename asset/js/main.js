@@ -69,5 +69,8 @@ const posts = [
     }
 ]
 
-
+for (let i = 0; i < posts.length; i++) {
+    const element = posts[i];
+    
+}
 
