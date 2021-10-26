@@ -71,11 +71,6 @@ const likeButton = document.getElementsByClassName('likebutton')
 
 
 
-for (let i = 0; i < posts.length; i++) {
-    if (posts[i].autore.avatar == "") {
-        avatarPlace.item(i).innerHTML = posts[i].autore.nome[0];
-    }
-}
 
 function feedGeneretor(posts) {
     let postlayout = '';
@@ -101,3 +96,9 @@ function feedGeneretor(posts) {
 }
 
 
+
+for (let i = 0; i < posts.length; i++) {
+    if (posts[i].autore.avatar == "") {
+        avatarPlace.item(i).innerHTML = posts[i].autore.nome[0];
+    }
+}
