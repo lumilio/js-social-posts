@@ -67,13 +67,15 @@ const posts = [
 
 feedGeneretor(posts);
 const avatarPlace = document.getElementsByClassName("fallbackPlace")
+const likeButton = document.getElementsByClassName('likebutton')
+
+
 
 for (let i = 0; i < posts.length; i++) {
     if (posts[i].autore.avatar == "") {
         avatarPlace.item(i).innerHTML = posts[i].autore.nome[0];
     }
 }
-
 
 function feedGeneretor(posts) {
     let postlayout = '';
@@ -90,7 +92,7 @@ function feedGeneretor(posts) {
             <h4 class="mb-4 mt-2">${posts[i].contenuto}</h4>
             <img src="${posts[i].immagine}"alt="">
             <div id="likes-container" class="d-flex justify-content-start flex-row">
-                <div class="w-50 d-flex justify-content-center pt-5 pb-3">mi piace</div>
+                <button class="likebutton w-50 d-flex justify-content-center pt-5 pb-3">mi piace</button>
                 <div class="w-50 d-flex justify-content-center pt-5 pb-3">${posts[i].likes}</div>
             </div>
         </div>`
