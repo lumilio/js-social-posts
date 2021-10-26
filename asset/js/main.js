@@ -27,7 +27,7 @@ const posts = [
         contenuto:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
         immagine:"https://picsum.photos/id/9/800/400",
         likes:50,
-        data:'aprile'
+        data: new Date().toLocaleString('it')
     },
     {
         id:1,
@@ -38,7 +38,7 @@ const posts = [
         contenuto:'orem ipsum, ctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
         immagine:"https://picsum.photos/id/55/800/400",
         likes:100,
-        data:'maggio'
+        data:new Date().toLocaleString('it')
     },
     {
         id:1,
@@ -49,7 +49,7 @@ const posts = [
         contenuto:'rem distinctio a consequuntur ducimus dicta maiores, recusandanostrum nobis?',
         immagine:"https://picsum.photos/id/98/800/400",
         likes:30,
-        data:'giugno'
+        data:new Date().toLocaleString('it')
     },
     {
         id:1,
@@ -60,7 +60,7 @@ const posts = [
         contenuto:'em ipsum, dolor sit amet consectetur adipisicing elit. nostrum nobis?',
         immagine:"https://picsum.photos/id/77/800/400",
         likes:200,
-        data:'luglio'
+        data:new Date().toLocaleString('it')
     },
 ]
 
@@ -68,8 +68,6 @@ const posts = [
 feedGeneretor(posts);
 const avatarPlace = document.getElementsByClassName("fallbackPlace")
 const likeButton = document.getElementsByClassName('likebutton')
-
-
 
 
 function feedGeneretor(posts) {
@@ -87,14 +85,13 @@ function feedGeneretor(posts) {
             <h4 class="mb-4 mt-2">${posts[i].contenuto}</h4>
             <img src="${posts[i].immagine}"alt="">
             <div id="likes-container" class="d-flex justify-content-start flex-row">
-                <button class="likebutton w-50 d-flex justify-content-center pt-5 pb-3">mi piace</button>
-                <div class="w-50 d-flex justify-content-center pt-5 pb-3">${posts[i].likes}</div>
+                <button class="likebutton w-50 d-flex justify-content-center align-items-center pt-5 pb-3">mi piace &nbsp;<i class="fas fa-thumbs-up"></i></button>
+                <div class="w-50 d-flex justify-content-center pt-5 pb-3">Piace a ${posts[i].likes} persone</div>
             </div>
         </div>`
     document.getElementById('container-posts').innerHTML = postlayout;
     }
 }
-
 
 
 for (let i = 0; i < posts.length; i++) {
