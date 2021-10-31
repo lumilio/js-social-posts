@@ -68,8 +68,6 @@ const posts = [
 
 
 
-
-
 feedGeneretor();
 
 const likeButton = document.getElementsByClassName('likebutton')
@@ -103,20 +101,11 @@ function feedGeneretor() {
 }
 
 
-
-
-
-
-
 //per date post
 function monthDiff(x) {
     const dataToday = new Date;
     return dataToday.getMonth() - x.getMonth() + (12 * (dataToday.getFullYear() - x.getFullYear()));
 }
-
-
-
-
 
 
 
@@ -147,10 +136,6 @@ function pressLike() {
 
     console.log(postILike);
 }
-
-
-
-
 
 
 
