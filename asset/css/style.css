@@ -6,3 +6,8 @@
 .fa-thumbs-up{
     font-size: 18px;
 }
+
+.liked{
+    color: blue;
+    background-color: cornflowerblue;
+}

@@ -72,6 +72,30 @@ const avatarPlace = document.getElementsByClassName("fallbackPlace")
 const likeButton = document.getElementsByClassName('likebutton')
 
 
+
+for (let i = 0; i < likeButton.length; i++) {
+    const button_like = likeButton[i]
+    button_like.addEventListener("click", pressLike) 
+}
+
+function pressLike() {
+    const postId = this.getAttribute("data-post-id");
+    const counterLikeEl = document.getElementById("like-counter-" + postId);
+
+    if (this.classList.contains("liked")) {
+        this.classList.remove("liked")
+        counterLikeEl.innerHTML = parseInt(counterLikeEl.innerHTML) - 1
+
+    } else {
+        this.classList.add("liked");
+        counterLikeEl.innerHTML = parseInt(counterLikeEl.innerHTML) + 1
+    }
+
+}
+
+
+
+
 function feedGeneretor() {
     let postlayout = '';
     for (let i = 0; i < posts.length; i++) {
@@ -87,13 +111,18 @@ function feedGeneretor() {
             <h4 class="mb-4 mt-2">${posts[i].contenuto}</h4>
             <img src="${posts[i].immagine}"alt="">
             <div id="likes-container" class="d-flex justify-content-start flex-row">
-                <button class="likebutton w-50 d-flex justify-content-center align-items-center pt-5 pb-3">mi piace &nbsp;<i class="fas fa-thumbs-up"></i></button>
-                <div class="w-50 d-flex justify-content-center pt-5 pb-3">Piace a ${posts[i].likes} persone</div>
+
+                <button data-post-id="${posts[i].id}" class="likebutton w-50 d-flex justify-content-center align-items-center pt-5 pb-3">mi piace &nbsp;<i class="fas fa-thumbs-up"></i></button>
+                <div class="w-50 d-flex justify-content-center pt-5 pb-3">Piace a <span id="like-counter-${posts[i].id}" class="n_likes">${posts[i].likes}</span> persone</div>
+
             </div>
         </div>`
     document.getElementById('container-posts').innerHTML = postlayout;
     }
 }
+
+
+
 
 
 for (let i = 0; i < posts.length; i++) {
@@ -108,13 +137,4 @@ for (let i = 0; i < posts.length; i++) {
     }
 }
 
-
-
-for (let i = 0; i < likeButton.length; i++) {
-    likeButton[i].addEventListener("click", mylikes)  
-}
-
-function mylikes() {
-    
-}
 
