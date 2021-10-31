@@ -23,46 +23,46 @@ const posts = [
     {
         id:1111,
         autore:{ 
-            nome:'Giacomo', 
-            avatar:"https://picsum.photos/id/14/80/80",
+            nome:'Giacomo Rossi', 
+            avatar:"",
         },
         contenuto:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae dolor repellat eaque distinctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
         immagine:"https://picsum.photos/id/9/800/400",
         likes:50,
-        data: new Date().toLocaleString('it')
+        data: new Date("2021, 08")
     },
     {
         id:2222,
         autore:{ 
-            nome:'Giovanni', 
+            nome:'Giovanni Verdi', 
             avatar:"https://picsum.photos/id/19/80/80",
         },
         contenuto:'orem ipsum, ctio ut. Vero, ad eveniet. Deserunt odit distinctio a consequuntur ducimus dicta maiores, recusandae minima impedit nostrum nobis?',
         immagine:"https://picsum.photos/id/55/800/400",
         likes:100,
-        data:new Date().toLocaleString('it')
+        data:new Date("2021, 03")
     },
     {
         id:3333,
         autore:{ 
-            nome:'Aldo', 
+            nome:'Aldo Neri', 
             avatar:"https://picsum.photos/id/31/80/80",
         },
         contenuto:'rem distinctio a consequuntur ducimus dicta maiores, recusandanostrum nobis?',
         immagine:"https://picsum.photos/id/98/800/400",
         likes:30,
-        data:new Date().toLocaleString('it')
+        data:new Date("2021, 01")
     },
     {
         id:4444,
         autore:{ 
-            nome:'Lorenzo', 
+            nome:'Lorenzo Mari', 
             avatar:"",
         },
         contenuto:'em ipsum, dolor sit amet consectetur adipisicing elit. nostrum nobis?',
         immagine:"https://picsum.photos/id/77/800/400",
         likes:200,
-        data:new Date().toLocaleString('it')
+        data:new Date("2020, 06")
     },
 ]
 
@@ -71,13 +71,12 @@ const posts = [
 
 
 feedGeneretor();
-const avatarPlace = document.getElementsByClassName("fallbackPlace")
+
 const likeButton = document.getElementsByClassName('likebutton')
+const avatarPlace = document.getElementsByClassName("fallbackPlace")
 
 
-
-
-
+// genero i post con un template comune
 function feedGeneretor() {
     let postlayout = '';
     for (let i = 0; i < posts.length; i++) {
@@ -87,7 +86,7 @@ function feedGeneretor() {
                 <div class='fallbackPlace'><img src="${posts[i].autore.avatar}"  class="rounded-circle" alt=""></div> 
                 <div class="m-3">
                     <div>${posts[i].autore.nome}</div>
-                    <div>${posts[i].data}</div>
+                    <div>${monthDiff(posts[i].data)} mesi fa</div>
                 </div>
             </div>
             <h4 class="mb-4 mt-2">${posts[i].contenuto}</h4>
@@ -107,6 +106,21 @@ function feedGeneretor() {
 
 
 
+
+
+//per date post
+function monthDiff(x) {
+    const dataToday = new Date;
+    return dataToday.getMonth() - x.getMonth() + (12 * (dataToday.getFullYear() - x.getFullYear()));
+}
+
+
+
+
+
+
+
+//per azione pulsanti like 
 for (let i = 0; i < likeButton.length; i++) {
     const button_like = likeButton[i]
     button_like.addEventListener("click", pressLike) 
@@ -130,6 +144,7 @@ function pressLike() {
         counterLikeEl.innerHTML = parseInt(counterLikeEl.innerHTML) + 1
         postILike.push(postId);
     }
+
     console.log(postILike);
 }
 
@@ -138,9 +153,20 @@ function pressLike() {
 
 
 
+
+//per fallback con le iniziali
+function iniziali(x) {
+    for (let i = 0; i < x.length; i++) {
+        const element = x[i];
+        if (element == " ")
+            return i + 1;
+    }
+}
+
 for (let i = 0; i < posts.length; i++) {
     if (posts[i].autore.avatar == "") {
         avatarPlace.item(i).innerHTML = posts[i].autore.nome[0];
+        avatarPlace.item(i).insertAdjacentHTML("beforeend", posts[i].autore.nome[iniziali(posts[i].autore.nome)]);
         avatarPlace.item(i).style.width = "50px"
         avatarPlace.item(i).style.height = "50px"
         avatarPlace.item(i).style.lineHeight = "50px"
@@ -149,5 +175,9 @@ for (let i = 0; i < posts.length; i++) {
         avatarPlace.item(i).style.borderRadius = "50%"
     }
 }
+
+
+
+
 
 
