@@ -16,7 +16,7 @@ Bonus 1: Date formattate come tempo relativo (es. "due mesi fa")
 Bonus 2: Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Sofia Perlari > SP)
 Bonus 3: Click al pulsante "Mi Piace" incrementa il counter dei like al post. */
  
-const postsID = []
+
 const postILike = []
 const posts = [
 
@@ -67,9 +67,43 @@ const posts = [
 ]
 
 
-feedGeneretor(posts);
+
+
+
+feedGeneretor();
 const avatarPlace = document.getElementsByClassName("fallbackPlace")
 const likeButton = document.getElementsByClassName('likebutton')
+
+
+
+
+
+function feedGeneretor() {
+    let postlayout = '';
+    for (let i = 0; i < posts.length; i++) {
+        postlayout +=
+        `<div class="the-post bg-white d-flex justify-content-center flex-column p-4 m-4">
+            <div id="the-user" class="d-flex justify-content-start align-items-center flex-row mb-3">
+                <div class='fallbackPlace'><img src="${posts[i].autore.avatar}"  class="rounded-circle" alt=""></div> 
+                <div class="m-3">
+                    <div>${posts[i].autore.nome}</div>
+                    <div>${posts[i].data}</div>
+                </div>
+            </div>
+            <h4 class="mb-4 mt-2">${posts[i].contenuto}</h4>
+            <img src="${posts[i].immagine}"alt="">
+            <div id="likes-container" class="d-flex justify-content-start flex-row">
+
+                <button data-post-id="${posts[i].id}" class="likebutton w-50 d-flex justify-content-center align-items-center pt-5 pb-3">mi piace &nbsp;<i class="fas fa-thumbs-up"></i></button>
+                <div class="w-50 d-flex justify-content-center pt-5 pb-3">Piace a&nbsp<span id="like-counter-${posts[i].id}" class="n_likes">${posts[i].likes}</span>&nbsppersone</div>
+
+            </div>
+        </div>`
+    document.getElementById('container-posts').innerHTML = postlayout;
+    }
+}
+
+
 
 
 
@@ -99,33 +133,6 @@ function pressLike() {
     console.log(postILike);
 }
 
-
-
-
-function feedGeneretor() {
-    let postlayout = '';
-    for (let i = 0; i < posts.length; i++) {
-        postlayout +=
-        `<div class="the-post bg-white d-flex justify-content-center flex-column p-4 m-4">
-            <div id="the-user" class="d-flex justify-content-start align-items-center flex-row mb-3">
-                <div class='fallbackPlace'><img src="${posts[i].autore.avatar}"  class="rounded-circle" alt=""></div> 
-                <div class="m-3">
-                    <div>${posts[i].autore.nome}</div>
-                    <div>${posts[i].data}</div>
-                </div>
-            </div>
-            <h4 class="mb-4 mt-2">${posts[i].contenuto}</h4>
-            <img src="${posts[i].immagine}"alt="">
-            <div id="likes-container" class="d-flex justify-content-start flex-row">
-
-                <button data-post-id="${posts[i].id}" class="likebutton w-50 d-flex justify-content-center align-items-center pt-5 pb-3">mi piace &nbsp;<i class="fas fa-thumbs-up"></i></button>
-                <div class="w-50 d-flex justify-content-center pt-5 pb-3">Piace a <span id="like-counter-${posts[i].id}" class="n_likes">${posts[i].likes}</span> persone</div>
-
-            </div>
-        </div>`
-    document.getElementById('container-posts').innerHTML = postlayout;
-    }
-}
 
 
 
