@@ -85,17 +85,18 @@ function pressLike() {
     if (this.classList.contains("liked")) {
         this.classList.remove("liked")
         counterLikeEl.innerHTML = parseInt(counterLikeEl.innerHTML) - 1
-        postILike.pop(postId);
+        for( var i = 0; i < postILike.length; i++){ 
+            if ( postILike[i] === postId) { 
+                postILike.splice(i, 1); 
+            }
+        }
         
-
     } else {
         this.classList.add("liked");
         counterLikeEl.innerHTML = parseInt(counterLikeEl.innerHTML) + 1
         postILike.push(postId);
     }
-
     console.log(postILike);
-
 }
 
 
