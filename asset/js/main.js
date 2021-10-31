@@ -32,7 +32,7 @@ const posts = [
         data: new Date().toLocaleString('it')
     },
     {
-        id:1,
+        id:2,
         autore:{ 
             nome:'Giovanni', 
             avatar:"https://picsum.photos/id/19/80/80",
@@ -43,7 +43,7 @@ const posts = [
         data:new Date().toLocaleString('it')
     },
     {
-        id:1,
+        id:3,
         autore:{ 
             nome:'Aldo', 
             avatar:"https://picsum.photos/id/31/80/80",
@@ -54,7 +54,7 @@ const posts = [
         data:new Date().toLocaleString('it')
     },
     {
-        id:1,
+        id:4,
         autore:{ 
             nome:'Lorenzo', 
             avatar:"",
