@@ -21,7 +21,7 @@ const postILike = []
 const posts = [
 
     {
-        id:1,
+        id:1111,
         autore:{ 
             nome:'Giacomo', 
             avatar:"https://picsum.photos/id/14/80/80",
@@ -32,7 +32,7 @@ const posts = [
         data: new Date().toLocaleString('it')
     },
     {
-        id:2,
+        id:2222,
         autore:{ 
             nome:'Giovanni', 
             avatar:"https://picsum.photos/id/19/80/80",
@@ -43,7 +43,7 @@ const posts = [
         data:new Date().toLocaleString('it')
     },
     {
-        id:3,
+        id:3333,
         autore:{ 
             nome:'Aldo', 
             avatar:"https://picsum.photos/id/31/80/80",
@@ -54,7 +54,7 @@ const posts = [
         data:new Date().toLocaleString('it')
     },
     {
-        id:4,
+        id:4444,
         autore:{ 
             nome:'Lorenzo', 
             avatar:"",
@@ -85,11 +85,16 @@ function pressLike() {
     if (this.classList.contains("liked")) {
         this.classList.remove("liked")
         counterLikeEl.innerHTML = parseInt(counterLikeEl.innerHTML) - 1
+        postILike.pop(postId);
+        
 
     } else {
         this.classList.add("liked");
         counterLikeEl.innerHTML = parseInt(counterLikeEl.innerHTML) + 1
+        postILike.push(postId);
     }
+
+    console.log(postILike);
 
 }
 
