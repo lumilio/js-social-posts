@@ -17,7 +17,9 @@ Bonus 2: Gestire l'assenza dell'immagine profilo con un elemento di fallback che
 Bonus 3: Click al pulsante "Mi Piace" incrementa il counter dei like al post. */
  
 const postsID = []
+const postILike = []
 const posts = [
+
     {
         id:1,
         autore:{ 
@@ -70,7 +72,7 @@ const avatarPlace = document.getElementsByClassName("fallbackPlace")
 const likeButton = document.getElementsByClassName('likebutton')
 
 
-function feedGeneretor(posts) {
+function feedGeneretor() {
     let postlayout = '';
     for (let i = 0; i < posts.length; i++) {
         postlayout +=
@@ -91,6 +93,17 @@ function feedGeneretor(posts) {
         </div>`
     document.getElementById('container-posts').innerHTML = postlayout;
     }
+}
+
+console.log(likeButton.length);
+
+function mylikes() {
+    
+}
+
+for (let i = 0; i < likeButton.length; i++) {
+    likeButton[i].addEventListener("click", )
+    
 }
 
 
