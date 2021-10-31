@@ -95,20 +95,26 @@ function feedGeneretor() {
     }
 }
 
-console.log(likeButton.length);
+
+for (let i = 0; i < posts.length; i++) {
+    if (posts[i].autore.avatar == "") {
+        avatarPlace.item(i).innerHTML = posts[i].autore.nome[0];
+        avatarPlace.item(i).style.width = "50px"
+        avatarPlace.item(i).style.height = "50px"
+        avatarPlace.item(i).style.lineHeight = "50px"
+        avatarPlace.item(i).style.textAlign = "center"
+        avatarPlace.item(i).style.backgroundColor = "skyblue"
+        avatarPlace.item(i).style.borderRadius = "50%"
+    }
+}
+
+
+
+for (let i = 0; i < likeButton.length; i++) {
+    likeButton[i].addEventListener("click", mylikes)  
+}
 
 function mylikes() {
     
 }
 
-for (let i = 0; i < likeButton.length; i++) {
-    likeButton[i].addEventListener("click", )
-    
-}
-
-
-for (let i = 0; i < posts.length; i++) {
-    if (posts[i].autore.avatar == "") {
-        avatarPlace.item(i).innerHTML = posts[i].autore.nome[0];
-    }
-}
